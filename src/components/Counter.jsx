@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { decrementBy, increment } from "../store/Actions";
+import { decrement } from "../store/Actions";
+import { incrementBy } from "./../store/Actions";
 
 export default function Counter() {
   // Local state
@@ -22,9 +25,13 @@ export default function Counter() {
           // setCounter(counter + 1);
 
           // redux
-          dispatch({
-            type: "INCREMENT",
-          });
+          // Before actions files
+          // dispatch({
+          //   type: "INCREMENT",
+          // });
+
+          // After actions files
+          dispatch(increment());
         }}
       >
         Increment{" "}
@@ -34,7 +41,10 @@ export default function Counter() {
           // Local state
           // setCounter(counter - 1);
           // Redux Store
-          dispatch({ type: "DECREMENT" });
+          // Before action file
+          // dispatch({ type: "DECREMENT" });
+          // After action file
+          dispatch(decrement());
         }}
       >
         Decrement{" "}
@@ -52,12 +62,15 @@ export default function Counter() {
           // Local state
           // setCounter(+val + counter);
           // Redux store
-          dispatch({
-            type: "INCREMENT_BY",
-            payload: {
-              val: val,
-            },
-          });
+          // Before actions file
+          // dispatch({
+          //   type: "INCREMENT_BY",
+          //   payload: {
+          //     val: val,
+          //   },
+          // });
+          // After actions file
+          dispatch(incrementBy(val));
         }}
       >
         Increment by
@@ -76,12 +89,15 @@ export default function Counter() {
           // Local state
           // setCounter(counter - Number(val));
           // Redux store
-          dispatch({
-            type: "DECREMENT_BY",
-            payload: {
-              val: val,
-            },
-          });
+          // Before action file
+          // dispatch({
+          //   type: "DECREMENT_BY",
+          //   payload: {
+          //     val: val,
+          //   },
+          // });
+          // After action file
+          dispatch(decrementBy(val));
         }}
       >
         Decrement by
